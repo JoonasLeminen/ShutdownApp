@@ -1,32 +1,33 @@
 ﻿using System;
 
-namespace ConsoleApp1
+namespace ShutdownApp
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Shutdown app v0.1");
+            Console.WriteLine("Shutdown app v0.1\n");
             bool isNumber;
             Console.WriteLine("Järjestelmän sammutus consolilla.");
 
             //Console.WriteLine("Järjestelmän sammutus/restart/hibernate consolista.");
             //Console.WriteLine("Valitse tehtävä numerolla \n1 Shutdown s \n2 Restart r \n3 Hibernate h");
             //string userInput1 = Console.ReadLine();
-
-            Console.WriteLine("Kirjoita aika alle sekunteina: ");
+            Console.WriteLine("");
+            Console.WriteLine("Kirjoita aika alle minuutteina:\n");
             do
             {
                 
                 string userInput2 = Console.ReadLine();
                 int evaluatedNumber;
                 isNumber = int.TryParse(userInput2, out evaluatedNumber);
+                int timeInSeconds = evaluatedNumber * 60;
 
                 if (isNumber == true)
                 {
-                    if (evaluatedNumber > 0)
+                    if (timeInSeconds > 0)
                     {
-                        System.Diagnostics.Process.Start("Shutdown", $"-s -t {evaluatedNumber}");
+                        System.Diagnostics.Process.Start("Shutdown", $"-s -t {timeInSeconds}");
                     }
                 }
                 else
