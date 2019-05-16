@@ -6,7 +6,7 @@ namespace ShutdownApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Shutdown app v0.1\n");
+            Console.WriteLine("Shutdown app v0.2\n\n");
             bool isNumber;
             Console.WriteLine("Järjestelmän sammutus consolilla.");
 
@@ -17,7 +17,7 @@ namespace ShutdownApp
             Console.WriteLine("Kirjoita aika alle minuutteina:\n");
             do
             {
-                
+
                 string userInput2 = Console.ReadLine();
                 int evaluatedNumber;
                 isNumber = int.TryParse(userInput2, out evaluatedNumber);
@@ -36,7 +36,11 @@ namespace ShutdownApp
                 }
             } while (isNumber == false);
 
-            Console.WriteLine($"Järjestelmä sammuu valitsemasi ajan kuluttua.");
+            string givenTimeAndDate = System.DateTime.Now.ToString("HH:mm");
+            // string calculatedTimeAndDate = "";
+            // Console.WriteLine($"\nJärjestelmä sammuu valitsemasi ajan kuluttua. " + "(" + givenTimeAndDate + ")");
+            Console.WriteLine($"\nJärjestelmä sammuu valitsemasi ajan kuluttua. \nAjastimen aloitusaika: " + givenTimeAndDate);
+            Console.WriteLine();
             Console.WriteLine("Voit perua sammutuskomennon painamalla mitä tahansa näppäintä.");
             Console.ReadKey();
             System.Diagnostics.Process.Start("Shutdown", "-a");
